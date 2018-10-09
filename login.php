@@ -1,6 +1,6 @@
 <?php
 	$hn = 'pluto.cse.msstate.edu';  
-	$un = 'jcg525';
-	$pw = '';  // phpMyAdmin password
-	$db = 'jcg525';  // database name, should be netID
+	$un = 'sam1123';
+	$pw = 'pZ0pIfMGJyxPEYNI';  // phpMyAdmin password
+	$db = 'sam1123';  // database name, should be netID
 ?>

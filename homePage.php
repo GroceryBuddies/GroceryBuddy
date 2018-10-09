@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Current Inventory</title>
+    <title>Grocery Buddy</title>
     <style>
         td {
             border: 1px solid black;
@@ -12,36 +12,30 @@
 </head>
 <body>
 <h1>
-    Current Inventory by Category
+    GroceryBuddy HomePage
 </h1>
-
-Our current book inventory includes the following books in the <?php echo $_GET["category"]; ?> category.<br>
 
 <?php
 include 'login.php';
-$libraryDB = new mysqli($hn, $un, $pw, $db);
-$category = $_GET["category"];
-$query = "SELECT * FROM classics WHERE category='$category'";
-$result = $libraryDB->query($query);
-echo "<table>";
-echo "<tr>
-<th><b>Title</b></th>
-<th><b>Author</b></th>
-<th><b>Category</b></th>
-<th><b>Year</b></th>
-<th><b>ISBN</b></th>
-</tr>";
-while($row = $result->fetch_array())
-{
-    echo "<tr>\n";
-    echo "<td>".$row[title]."</td>\n";
-    echo "<td>".$row[author]."</td>\n";
-    echo "<td>".$row[category]."</td>\n";
-    echo "<td>".$row[year]."</td>\n";
-    echo "<td>".$row[isbn]."</td>\n";
-    echo '</tr>';
+$customers = new mysqli($hn, $un, $pw, $db);
+
+if($customers->connect_error){
+    die("Connection Failed... Bummer<br>".$customers->connect_error);
 }
-echo '</table>';
+
+$un = $_POST["un"];
+$pw = $_POST["pw"];
+
+$query = "SELECT * FROM CUSTOMERS WHERE EMAIL='$un'";
+$result = $customers->query($query);
+
+$row = $result->fetch_array();
+
+if($row[PASSWORD] === $pw){
+    echo "You have been authenticated.<br>";
+}else{
+    echo "Get out of my website";
+}
 ?>
 
 </body>
