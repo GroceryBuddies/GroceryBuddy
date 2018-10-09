@@ -36,7 +36,7 @@
         .big-pad {
             padding-left: 0px;
             padding-right: 0px;
-            padding-top: 550px;
+            padding-top: 220%;
             padding-bottom: 0px;
         }
         .fa-1x {
@@ -79,13 +79,13 @@
             <div id="sidebar-wrapper">
                 <ul class="sidebar-nav mr-auto">
                     <li class="nav-item active">
-                        <a href="#" onclick="populateData('Lists')">Grocery Lists</a>
+                        <a href="#" id="lists">Grocery Lists</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" onclick="populateData('List')">Create a List</a>
+                        <a href="#" onclick="createLists()">Create a List</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" onclick="populateData('Recipe')">Create a Recipe</a>
+                        <a href="#" onclick="createRecipes()">Create a Recipe</a>
                     </li>
                     <li class="nav-item">
                         <a href="#">Options</a>
@@ -124,9 +124,14 @@
         </script>
 
         <script>
-            function populateData(html) {
-                document.getElementById('content').innerHTML = html;
-            }
+        $(document).ready(function(){
+            $('#lists').click(function(){
+                $.get('A2_Rasterization.htm').success(function(data)
+                {
+                    $('#content').html(data);
+                });
+            });
+        });
         </script>
 
     </body>
