@@ -1,124 +1,134 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
-<head>
+    <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+        <title>Simple Sidebar - Start Bootstrap Template</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <!-- Custom styles for this template -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="css/simple-sidebar.css" rel="stylesheet">
 
-</head>
+    </head>
 
-<style>
-.fa-1x {
-    font-size: 1.5rem;
-}
-.navbar-toggler.toggler-example {
-    cursor: pointer;
-}
-.dark-blue-text {
-    color: #0A38F5;
-}
-.dark-pink-text {
-    color: #AC003A;
-}
-.dark-amber-text {
-    color: #ff6f00;
-}
-.dark-teal-text {
-    color: #004d40;
-}
-</style>
+    <style>
+        .pad {
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 6px;
+        }
+        .no-pad {
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+        .big-pad {
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-top: 550px;
+            padding-bottom: 0px;
+        }
+        .fa-1x {
+            font-size: 1.5rem;
+        }
+        .navbar-toggler.toggler-example {
+            cursor: pointer;
+        }
+        .dark-blue-text {
+            color: #0A38F5;
+        }
+        .dark-pink-text {
+            color: #AC003A;
+        }
+        .dark-amber-text {
+            color: #ff6f00;
+        }
+        .dark-teal-text {
+            color: #004d40;
+        }
+        .white {
+            color: #FFFFFF
+        }
+    </style>
 
-<body>
-
-<!-- A grey horizontal navbar that becomes vertical on small screens -->
-<nav class="navbar navbar-expand-sm bg-light">
-
-        <!-- Links -->
-            <!-- Collapse button -->
-        <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#">GroceryBuddy</a>
-          </li>
-        </ul>
-      </nav>
-
-</nav>
-<!--/.Navbar-->
-
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        GroceryBuddy
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <h1>Simple Sidebar</h1>
-                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+    <body>
+        <!-- A grey horizontal navbar that becomes vertical on small screens -->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <button href="#menu-toggle" type="button" id="menu-toggle" class="btn">
+                <i class="fas fa-align-left"></i>
+                    <span>☰</span>
+            </button>
+            <div>
+                <h4 class="nav-brand pad white">GroceryBuddy</h4>
             </div>
+        </nav>
+
+        <div id="wrapper">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a href="#" onclick="populateData('Lists')">Grocery Lists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" onclick="populateData('List')">Create a List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" onclick="populateData('Recipe')">Create a Recipe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Options</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">About</a>
+                    </li>
+                    <li class="big-pad">
+                        <font color="#FFFFFF">GroceryBuddy 2018</font>
+                    </li>
+                </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <div class="container-fluid" id="content">
+                </div>
+            </div>
+            <!-- /#page-content-wrapper -->
+
         </div>
-        <!-- /#page-content-wrapper -->
+        <!-- /#wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>  
+        
+        <!-- Menu Toggle Script -->
+        <script>
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+        </script>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script>
+            function populateData(html) {
+                document.getElementById('content').innerHTML = html;
+            }
+        </script>
 
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
-
-</body>
+    </body>
 
 </html>
