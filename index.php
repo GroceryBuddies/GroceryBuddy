@@ -10,6 +10,7 @@
             exit();
         }
     ?>
+    
     <head>
 
         <meta charset="utf-8">
@@ -80,10 +81,6 @@
             <div>
                 <h4 class="nav-brand pad white">GroceryBuddy</h4>
             </div>
-            <button href="#logout" type="button" id="logout" class="btn">
-                <i class="fas fa-align-right"></i>
-                    <span>Sign Out</span>
-            </button>
         </nav>
 
         <div id="wrapper">
@@ -104,6 +101,9 @@
                     </li>
                     <li class="nav-item">
                         <a href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" id="logout">Log Out</a>
                     </li>
                     <li class="big-pad">
                         <font color="#FFFFFF">GroceryBuddy 2018</font>
@@ -138,10 +138,13 @@
         <script>
         $(document).ready(function(){
             $('#lists').click(function(){
-                $.get('A2_Rasterization.htm').success(function(data)
+                $.get('http://chiefdelphi.com/').success(function(data)
                 {
                     $('#content').html(data);
                 });
+            });
+            $('#logout').click(function(){
+                $.get('logout_page.php').success(window.location.replace("logout_page.php"));
             });
         });
         </script>
