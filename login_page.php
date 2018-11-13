@@ -109,10 +109,10 @@ function setSession($type, $username){
 function redirectToPage(){
     $type = $_SESSION["type"];
     if($type == '1'){
-        header('Location: homePage.php');
+        header('Location: index.php');
         exit();
     }else{
-        header('Location: homePage.php');
+        header('Location: index.php');
         exit();
     }
 }
