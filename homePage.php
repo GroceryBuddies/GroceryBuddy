@@ -17,7 +17,7 @@
 
 <?php
     session_start();
-    if(isset($_SESSION['username']) && ($_SESSION['type'] == 'user')){
+    if(isset($_SESSION['username'])){
         $username = $_SESSION['username'];
         echo "Welcome back $username <br>";
         echo '<a href="logout_page.php">Log out</a>';

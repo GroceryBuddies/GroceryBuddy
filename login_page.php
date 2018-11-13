@@ -49,15 +49,14 @@
     {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $query = "SELECT * FROM gb_users WHERE username='$username'";
+        $query = "SELECT * FROM gb_Users";
         $result = $connection->query($query);
         $row = $result->fetch_array();
         $submittedPassword = saltAndHash($password);
         $userPassword = $row['password'];
         if($submittedPassword == $userPassword){
-            echo "Passwords match!";
-            setSession($row['type'], $row['username']);
-            //redirectToPage();
+            setSession($row['isAdmin'], $row['username']);
+            redirectToPage();
         }else{
             $errorMessage = "Failed Login attempt!";
         }
@@ -109,7 +108,7 @@ function setSession($type, $username){
 
 function redirectToPage(){
     $type = $_SESSION["type"];
-    if($type == 'admin'){
+    if($type == '1'){
         header('Location: homePage.php');
         exit();
     }else{
