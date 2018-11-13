@@ -10,7 +10,7 @@
             exit();
         }
     ?>
-    
+
     <head>
 
         <meta charset="utf-8">
@@ -88,19 +88,19 @@
             <div id="sidebar-wrapper">
                 <ul class="sidebar-nav mr-auto">
                     <li class="nav-item active">
-                        <a href="#" id="lists">Grocery Lists</a>
+                        <a href="#" id="shopping">Shopping Lists</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" onclick="createLists()">Create a List</a>
+                        <a href="#" id="recipes">Recipes</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" onclick="createRecipes()">Create a Recipe</a>
+                        <a href="#" id="grocery">Grocery Lists</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#">Options</a>
+                        <a href="#" id="options">Options</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#">About</a>
+                        <a href="#" id="about">About</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" id="logout">Log Out</a>
@@ -137,11 +137,13 @@
 
         <script>
         $(document).ready(function(){
-            $('#lists').click(function(){
-                $.get('http://chiefdelphi.com/').success(function(data)
-                {
-                    $('#content').html(data);
-                });
+            $('#shopping').click(function(){
+                $('#content').empty();
+                $('#content').load('shopping_lists.php');
+            });
+            $('#recipes').click(function(){
+                $('#content').empty();
+                $('#content').load('recipes.php');
             });
             $('#logout').click(function(){
                 $.get('logout_page.php').success(window.location.replace("logout_page.php"));
