@@ -13,6 +13,8 @@
         unset($_SESSION['type']);
 
         session_destroy();
+
+        header('Location: login_page.php');
     ?> 
     <body>
         <h1>Logged Out</h1>
