@@ -47,18 +47,21 @@
     $password = "";
     if(isset($_POST['submit']))
     {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $query = "SELECT * FROM gb_Users";
+        $username = $_POST['un'];
+        $password = $_POST['pw'];
+        $query = "SELECT * FROM gb_Users WHERE username = '$username' ";
         $result = $connection->query($query);
         $row = $result->fetch_array();
         $submittedPassword = saltAndHash($password);
         $userPassword = $row['password'];
+        echo $submittedPassword;
+        echo "<br>";
+        echo $row['password'];
         if($submittedPassword == $userPassword){
-            setSession($row['isAdmin'], $row['username']);
+            setSession($row['isAdmin'], $row['userID']);
             redirectToPage();
         }else{
-            $errorMessage = "Failed Login attempt!";
+            $errorMessage = "Failed Login Attempt";
         }
     }
   ?>
@@ -71,7 +74,7 @@
         <fieldset>
           <div class="pad">
             <label for="inputEmail" class="sr-only">Email</label>
-            <input id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="" name="un">
+            <input type="username" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="" name="un">
           </div>
           <div class="col-med mb-3">
             <label for="inputPassword" class="sr-only">Password</label>
@@ -102,7 +105,7 @@ function saltAndHash($password){
 }
 
 function setSession($type, $username){
-    $_SESSION["username"] =  $username;
+    $_SESSION["userID"] =  $username;
     $_SESSION["type"] =  $type;
 }
 
