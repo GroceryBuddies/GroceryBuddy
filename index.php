@@ -137,6 +137,8 @@
 
         <script>
         $(document).ready(function(){
+            $('#content').empty();
+            $('#content').load('shopping_lists.php');
             $('#shopping').click(function(){
                 $('#content').empty();
                 $('#content').load('shopping_lists.php');

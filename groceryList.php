@@ -40,11 +40,28 @@
             </button>
         </div>
         <div class="modal-body">
-            ...
+            <!-- Add HTML/JS/PHP here. -->
+            
+            <form>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Name</label>
+                    <input class="form-control" id="name"></textarea>
+                    <div class="form-group">
+                    <label for="message-text" class="col-form-label">Type</label>
+                    <input class="form-control" id="type"></textarea>
+                    <div class="form-group">
+                    <label for="message-text" class="col-form-label">Description</label>
+                    <input class="form-control" id="description"></textarea>
+                </div>
+            </form>
+
+            <!-- END -->
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
         </div>
         </div>
     </div>
@@ -55,7 +72,9 @@
             $('#myInput').trigger('focus')
             })
     </script>
+
     <br>
+
     <table class="table">
         <thead>
             <tr>                
