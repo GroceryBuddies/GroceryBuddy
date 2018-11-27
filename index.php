@@ -149,6 +149,10 @@
                 $('#content').empty();
                 $('#content').load('groceryList.php');
             });
+            $('#options').click(function(){
+                $('#content').empty();
+                $('#content').load('options.php');
+            });
             $('#logout').click(function(){
                 $.get('logout_page.php').success(window.location.replace("logout_page.php"));
             });

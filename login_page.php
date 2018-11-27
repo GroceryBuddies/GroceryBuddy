@@ -58,7 +58,7 @@
         echo "<br>";
         echo $row['password'];
         if($submittedPassword == $userPassword){
-            setSession($row['isAdmin'], $row['userID']);
+            setSession($row['isAdmin'], $row['userID'], $row['username']);
             redirectToPage();
         }else{
             $errorMessage = "Failed Login Attempt";
@@ -104,19 +104,14 @@ function saltAndHash($password){
     return $token;
 }
 
-function setSession($type, $username){
-    $_SESSION["userID"] =  $username;
+function setSession($type, $userID, $username){
+    $_SESSION["userID"] =  $userID;
+    $_SESSION["username"] =  $username;
     $_SESSION["type"] =  $type;
 }
 
 function redirectToPage(){
-    $type = $_SESSION["type"];
-    if($type == '1'){
-        header('Location: index.php');
-        exit();
-    }else{
-        header('Location: index.php');
-        exit();
-    }
+  header('Location: index.php');
+  exit();
 }
 ?>
