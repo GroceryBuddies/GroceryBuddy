@@ -28,9 +28,11 @@
      <?php
         session_start();
         if($_SESSION['type'] == 1 ){
-            echo "Welcome Admin";
+            echo "Welcome Admin<br>";
+            echo $_SESSION['username'];
         }else {
-            echo "Welcome User";
+            echo "Welcome User<br>";
+            echo $_SESSION['username'];
         }
     ?>
         </tbody>
