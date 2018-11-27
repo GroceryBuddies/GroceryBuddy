@@ -23,9 +23,6 @@
 
 <body>
     <h1>Shopping List</h1>
-    <script>
-        console.log("hello");
-    </script>
     <br>
     <table class="table">
         <thead>
@@ -61,9 +58,7 @@
             echo "<td>".$groceryType."</td>";
             echo "<td>".$groceryDescription."</td>";
             echo "</tr>";
-
         }
-
     ?>
         </tbody>
     </table>

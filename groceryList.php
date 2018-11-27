@@ -22,12 +22,12 @@
 </head>
 
 <body>
-    <h1>Recipes</h1>
+    <h1>Groceries</h1>
     <br>
     <table class="table">
         <thead>
             <tr>                
-                <th scope="col">Recipe</th>
+                <th scope="col">Name</th>
                 <th scope="col">Type</th>
                 <th scope="col">Description</th>
             </tr>
@@ -39,16 +39,16 @@
         $connection = new mysqli($hn, $un, $pw, $db);
         if ($connection->connect_error) die($connection->connect_error);
         $userID = $_SESSION['userID'];
-        $query = "SELECT * FROM gb_Recipes";
+        $query = "SELECT * FROM gb_Groceries";
         $result = $connection->query($query);
         while($row = $result->fetch_array()){
-            $recipeName = $row[recipeName];
-            $recipeType = $row[recipeType];
-            $recipeDescription = $row[shortDescription];
-            echo "<tr>";
-            echo "<td>".$recipeName."</td>";
-            echo "<td>".$recipeType."</td>";
-            echo "<td>".$recipeDescription."</td>";
+            $groceryName = $row[itemName];
+            $groceryType = $row[type];
+            $groceryDescription = $row[shortDescription];
+            echo "<tr>";            
+            echo "<td>".$groceryName."</td>";
+            echo "<td>".$groceryType."</td>";
+            echo "<td>".$groceryDescription."</td>";
             echo "</tr>";
         }
     ?>

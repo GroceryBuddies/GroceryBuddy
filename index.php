@@ -145,6 +145,10 @@
                 $('#content').empty();
                 $('#content').load('recipes.php');
             });
+            $('#grocery').click(function(){
+                $('#content').empty();
+                $('#content').load('groceryList.php');
+            });
             $('#logout').click(function(){
                 $.get('logout_page.php').success(window.location.replace("logout_page.php"));
             });
