@@ -14,8 +14,10 @@
 
   <style>
     .pad {
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-left: 20px;
+      padding-right: 20px;
     }
     input {
       border-style: "round";
@@ -111,7 +113,7 @@
           </div>
 
           <!-- User creates password -->
-          <div class="col-med mb-3">
+          <div class="col-med mb-3 pad">
             <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" name="pw">
           </div>
