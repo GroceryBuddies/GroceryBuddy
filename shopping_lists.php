@@ -41,23 +41,14 @@
         </div>
         <div class="modal-body">
             <!-- Add HTML/JS/PHP here. -->
-            
             <form>
                 <div class="form-group">
                 <label for="message-text" class="col-form-label">Quantity</label>
-                    <input class="form-control" id="description"></textarea>
+                    <input class="form-control" id="quantity"></textarea>
                     <label for="message-text" class="col-form-label">Grocery</label>
                     <input class="form-control" id="name"></textarea>
-                    <div class="form-group">
-                    <label for="message-text" class="col-form-label">Type</label>
-                    <input class="form-control" id="type"></textarea>
-                    <div class="form-group">
-                    <label for="message-text" class="col-form-label">Description</label>
-                    <input class="form-control" id="description"></textarea>
-                    
                 </div>
             </form>
-
             <!-- END -->
         </div>
         <div class="modal-footer">
@@ -104,16 +95,13 @@
             $groceryType = $grocery[type];
             $groceryDescription = $grocery[shortDescription];
             $groceryQuantity = $row[quantity];
-
             echo "<tr>";            
             echo "<td>".$groceryQuantity."</td>";
             echo "<td>".$groceryName."</td>";
             echo "<td>".$groceryType."</td>";
             echo "<td>".$groceryDescription."</td>";
             echo "</tr>";
-
         }
-
     ?>
         </tbody>
     </table>

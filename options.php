@@ -24,68 +24,76 @@
 <body>
     <h1>Options</h1>
     <br>
-
-    <table class="table">
-    <thead>
-        <tr>                
-            <th scope="col">User</th>
-            <th scope="col">Delete</th>
-            <th scope="col">Etc</th>
-            <th scope="col">Etc</th>
-        </tr>
-    </thead>
-    <tbody>
-     <?php
-        session_start();
-        require_once 'login.php';
-        $connection = new mysqli($hn, $un, $pw, $db);
-        if ($connection->connect_error) die($connection->connect_error);
-        $userID = $_SESSION['userID'];
-        $query = "SELECT * FROM gb_ShoppingList WHERE userID='$userID'";
-        $result = $connection->query($query);
-        while($row = $result->fetch_array()){
-            $itemID = $row[itemID];
-            $query = "SELECT * FROM gb_Groceries WHERE itemID='$itemID'";
-            $groceryResult = $connection->query($query);
-            $grocery = $groceryResult->fetch_array();
-            $groceryName = $grocery[itemName];
-            $groceryType = $grocery[type];
-            $groceryDescription = $grocery[shortDescription];
-            $groceryQuantity = $row[quantity];
-
-            echo "<tr>";            
-            echo "<td>".$groceryQuantity."</td>";
-            echo "<td>    
-            <button id='add' type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModalCenter'>
-            <b>Add</b>
-            </button>
-            </td>";
-            echo "<td>    
-            <button id='add' type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModalCenter'>
-            <b>Add</b>
-            </button>
-            </td>";
-            echo "<td>    
-            <button id='add' type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModalCenter'>
-            <b>Add</b>
-            </button>
-            </td>";
-            echo "</tr>";
-
-        }
-
-    ?>
-
      <?php
         session_start();
         if($_SESSION['type'] == 1 ){
-            echo "Welcome Admin<br>";
-            echo $_SESSION['username'];
+            require_once 'login.php';
+            $connection = new mysqli($hn, $un, $pw, $db);
+            if ($connection->connect_error) die($connection->connect_error);
+           createUserTable($connection);
+           createGroceryTable($connection);
         }else {
             echo "Welcome User<br>";
             echo $_SESSION['username'];
         }
     ?>
-        </tbody>
-    </table>
 </body>
+
+<?php
+
+function createUserTable($connection){
+    $query = "SELECT * FROM gb_Users";
+    $result = $connection->query($query);
+    echo ' <table class="table">
+    <thead>
+        <tr>                
+            <th scope="col">User</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>';
+    while($row = $result->fetch_array()){
+        $username = $row[username];
+
+        echo "<tr>";            
+        echo "<td>".$username."</td>";
+        echo "<td>    
+        <button id='add' type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModalCenter'>
+        <b>Delete</b>
+        </button>
+        </td>";
+        echo "</tr>";
+    }
+    echo '</tbody>
+    </table><br><br>';
+}
+
+function createGroceryTable($connection){
+    $query = "SELECT * FROM gb_Groceries";
+    $result = $connection->query($query);
+    echo ' <table class="table">
+    <thead>
+        <tr>                
+            <th scope="col">Grocery</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>';
+    while($row = $result->fetch_array()){
+        $itemName = $row[itemName];
+
+        echo "<tr>";            
+        echo "<td>".$itemName."</td>";
+        echo "<td>    
+        <button id='add' type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModalCenter'>
+        <b>Delete</b>
+        </button>
+        </td>";
+        echo "</tr>";
+    }
+    echo '</tbody>
+    </table><br><br>';
+
+}
+?>
+
