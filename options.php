@@ -54,11 +54,10 @@ function createUserTable($connection){
     <tbody>';
     while($row = $result->fetch_array()){
         $username = $row[username];
-
         echo "<tr>";            
         echo "<td>".$username."</td>";
         echo "<td>    
-        <button id='add' type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModalCenter'>
+        <button type='submit' class='btn btn-primary' name='user' id=$username>
         <b>Delete</b>
         </button>
         </td>";
@@ -81,11 +80,10 @@ function createGroceryTable($connection){
     <tbody>';
     while($row = $result->fetch_array()){
         $itemName = $row[itemName];
-
         echo "<tr>";            
         echo "<td>".$itemName."</td>";
         echo "<td>    
-        <button id='add' type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModalCenter'>
+        <button type='submit' class='btn btn-primary' name='grocery' id=$itemName>
         <b>Delete</b>
         </button>
         </td>";
@@ -96,4 +94,34 @@ function createGroceryTable($connection){
 
 }
 ?>
-
+<script type="text/javascript">
+    $(function() {
+        $(".btn").click(function() {
+            var del_id = $(this).attr("id");
+            var info = 'id=' + del_id;
+            var which = $(this).attr("name");
+            if(which == "user") {
+                if (confirm("Sure you want to delete this? This cannot be undone later.")) {
+                    $.ajax({
+                        type : "POST",
+                        url : "delete_user.php", //URL to the delete php script
+                        data : info,
+                        success : function() {
+                        }
+                    });
+                }
+            } else if(which == "grocery") {
+                if (confirm("Sure you want to delete this? This cannot be undone later.")) {
+                    $.ajax({
+                        type : "POST",
+                        url : "delete_grocery.php", //URL to the delete php script
+                        data : info,
+                        success : function() {
+                        }
+                    });
+                }
+            }
+            return false;
+        });
+    });
+</script>
