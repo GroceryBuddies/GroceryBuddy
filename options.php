@@ -57,7 +57,7 @@ function createUserTable($connection){
         echo "<tr>";            
         echo "<td>".$username."</td>";
         echo "<td>    
-        <button type='submit' class='btn btn-primary' name='user' id=$username>
+        <button type='submit' class='btn btn-primary' name='user' id=".$username.">
         <b>Delete</b>
         </button>
         </td>";
@@ -83,7 +83,7 @@ function createGroceryTable($connection){
         echo "<tr>";            
         echo "<td>".$itemName."</td>";
         echo "<td>    
-        <button type='submit' class='btn btn-primary' name='grocery' id=$itemName>
+        <button type='submit' class='btn btn-primary' name='grocery' id=".$itemName.">
         <b>Delete</b>
         </button>
         </td>";
