@@ -73,14 +73,14 @@
 
     <body>
         <!-- A grey horizontal navbar that becomes vertical on small screens -->
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <button href="#menu-toggle" type="button" id="menu-toggle" class="btn">
-                <i class="fas fa-align-left"></i>
-                    <span>☰</span>
-            </button>
-            <div>
-                <h4 class="nav-brand pad white">GroceryBuddy</h4>
-            </div>
+        <nav class="navbar navbar-fixed-top navbar-expand-sm bg-dark navbar-dark">
+                <button href="#menu-toggle" type="button" id="menu-toggle" class="btn">
+                    <i class="fas fa-align-left"></i>
+                        <span>☰</span>
+                </button>
+                <div>
+                    <h4 class="nav-brand pad white">GroceryBuddy</h4>
+                </div>
         </nav>
 
         <div id="wrapper">
