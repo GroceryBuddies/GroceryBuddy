@@ -123,7 +123,7 @@
           <a href="reset_pass.html">Forgot password?</a>
         </div>
         <div class="pad">
-          <a href="reset_pass.html">Create an Account</a>
+          <a href="login_page.php">Already a user? Log In</a>
         </div>
         <div class="pad">
           <button class="btn btn-med btn-warning btn-block" name="submit" type="submit">Sign up</button>
