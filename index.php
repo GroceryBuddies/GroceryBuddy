@@ -129,33 +129,38 @@
         
         <!-- Menu Toggle Script -->
         <script>
+        $(document).ready(function(){
             $("#menu-toggle").click(function(e) {
                 e.preventDefault();
                 $("#wrapper").toggleClass("toggled");
             });
-        </script>
-
-        <script>
-        $(document).ready(function(){
             $('#content').empty();
             $('#content').load('shopping_lists.php');
-            $('#shopping').click(function(){
+            $('#shopping').click(function(e){
                 $('#content').empty();
                 $('#content').load('shopping_lists.php');
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
             });
-            $('#recipes').click(function(){
+            $('#recipes').click(function(e){
                 $('#content').empty();
                 $('#content').load('recipes.php');
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
             });
-            $('#grocery').click(function(){
+            $('#grocery').click(function(e){
                 $('#content').empty();
                 $('#content').load('groceryList.php');
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
             });
-            $('#options').click(function(){
+            $('#options').click(function(e){
                 $('#content').empty();
                 $('#content').load('options.php');
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
             });
-            $('#logout').click(function(){
+            $('#logout').click(function(e){
                 $.get('logout_page.php').success(window.location.replace("logout_page.php"));
             });
         });
