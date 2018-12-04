@@ -57,7 +57,9 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="savebutton" class="btn btn-primary" data-dismiss="modal">Add</button>
+            <button type="submit" name="savebutton" user="<?php session_start(); 
+                                                                echo $_SESSION['userID']?>" 
+                                                                class="btn btn-primary" data-dismiss="modal">Add</button>
         </div>
         </div>
         </div>
