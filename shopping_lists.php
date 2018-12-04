@@ -75,6 +75,7 @@
                 <th scope="col">Grocery</th>
                 <th scope="col">Type</th>
                 <th scope="col">Description</th>
+                <th scope="col">Remove</th>
             </tr>
         </thead>
         <tbody>
@@ -100,9 +101,32 @@
             echo "<td>".$groceryName."</td>";
             echo "<td>".$groceryType."</td>";
             echo "<td>".$groceryDescription."</td>";
+            echo "<td>    
+            <button type='submit' class='btn btn-primary' name='removeGrocery' user=$userID id=$itemID>
+            <b>Remove</b>
+            </button>
+            </td>";
             echo "</tr>";
         }
     ?>
         </tbody>
     </table>
 </body>
+
+<script type="text/javascript">
+    $(function() {
+        $(".btn").click(function() {
+            var del_id = $(this).attr("id");
+            var userID = $(this).attr("user");
+            var info = 'itemID=' + del_id + 'userID=' + userID;
+            var which = $(this).attr("name");
+            if(which == 'removeGrocery'){
+                console.log(info);
+                $.post("delete_list_item.php",{itemID:del_id, userID:userID},
+                    function() {
+                });
+                return false;
+            }
+        });
+    });
+</script>

@@ -100,8 +100,8 @@ function createGroceryTable($connection){
             var del_id = $(this).attr("id");
             var info = 'id="' + del_id + '"';
             var which = $(this).attr("name");
-            console.log(info);
             if(which == "user") {
+                console.log(info);
                 if (confirm("Sure you want to delete this? This cannot be undone later.")) {
                     $.ajax({
                         type : "POST",
@@ -112,6 +112,7 @@ function createGroceryTable($connection){
                     });
                 }
             } else if(which == "grocery") {
+                console.log(info);
                 if (confirm("Sure you want to delete this? This cannot be undone later.")) {
                     $.ajax({
                         type : "POST",

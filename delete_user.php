@@ -13,11 +13,16 @@ require_once 'login.php';
     $recipeResult = $connection->query($query);
     while($row = $recipeResult->fetch_array()){
         $recipeID = $row[recipeID];
-        $query = "DELETE FROM gb_Join WHERE recipeID=$recipeID";
+        $query = "UPDATE gb_Recipes SET userID='13' WHERE recipeID=$recipeID";
         $connection->query($query);
     }
-    $query = "DELETE FROM gb_Recipes WHERE userID=$userID";
-    $connection->query($query);
+    $query = "SELECT * FROM gb_Groceries WHERE userID=$userID";
+    $recipeResult = $connection->query($query);
+    while($row = $recipeResult->fetch_array()){
+        $itemID = $row[itemID];
+        $query = "UPDATE gb_Groceries SET userID='13' WHERE itemID=$itemID";
+        $connection->query($query);
+    }
     $query = "DELETE FROM gb_Users WHERE userID=$userID";
     $connection->query($query);
 ?>

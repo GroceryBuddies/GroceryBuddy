@@ -92,6 +92,7 @@
         $query = "SELECT * FROM gb_Recipes";
         $result = $connection->query($query);
         while($row = $result->fetch_array()){
+            $recipeID = $row[recipeID];
             $recipeName = $row[recipeName];
             $recipeType = $row[recipeType];
             $recipeDescription = $row[shortDescription];
@@ -99,9 +100,32 @@
             echo "<td>".$recipeName."</td>";
             echo "<td>".$recipeType."</td>";
             echo "<td>".$recipeDescription."</td>";
+            echo "<td>    
+            <button type='submit' class='btn btn-primary' name='addRecipe' user=$userID id=$recipeID>
+            <b>Add to List</b>
+            </button>
+            </td>";
             echo "</tr>";
         }
     ?>
         </tbody>
     </table>
 </body>
+
+<script type="text/javascript">
+    $(function() {
+        $(".btn").click(function() {
+            var add_ID = $(this).attr("id");
+            var user = $(this).attr("user");
+            var info = 'recipeID=' + add_ID + 'userID=' + user;
+            var which = $(this).attr("name");
+            if(which == "addRecipe") {
+                console.log(info);
+                $.post("add_recipe.php", {recipeID: add_ID, userID: user},
+                    function() {
+                });
+            }
+            return false;
+        });
+    });
+</script>
