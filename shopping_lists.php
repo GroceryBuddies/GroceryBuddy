@@ -122,8 +122,7 @@
             var which = $(this).attr("name");
             if(which == 'removeGrocery'){
                 console.log(info);
-                $.post("delete_list_item.php",{itemID:del_id, userID:userID},
-                    function() {
+                $.post("delete_list_item.php",{itemID:del_id, userID:userID},function() {
                 });
                 return false;
             }

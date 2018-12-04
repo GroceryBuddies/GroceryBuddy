@@ -121,8 +121,7 @@
             var which = $(this).attr("name");
             if(which == "addRecipe") {
                 console.log(info);
-                $.post("add_recipe.php", {recipeID:add_ID, userID:userID},
-                    function() {
+                $.post("add_recipe.php", {recipeID:add_ID, userID:userID},function(){
                 });
                 return false;
             }

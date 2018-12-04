@@ -10,7 +10,6 @@ require_once 'login.php';
         $itemID = $row[itemID];
         $quantity = $row[quantity];
         $addQuery = "INSERT INTO gb_ShoppingList (userID, itemID, quantity) VALUES ('$userID', '$itemID', '$quantity')";
-        $result = $connection->query($addQuery);
+        $connection->query($addQuery);
     }
-    
 ?>
