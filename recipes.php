@@ -116,16 +116,16 @@
     $(function() {
         $(".btn").click(function() {
             var add_ID = $(this).attr("id");
-            var user = $(this).attr("user");
-            var info = 'recipeID=' + add_ID + 'userID=' + user;
+            var userID = $(this).attr("user");
+            var info = 'recipeID=' + add_ID + 'userID=' + userID;
             var which = $(this).attr("name");
             if(which == "addRecipe") {
                 console.log(info);
-                $.post("add_recipe.php", {recipeID: add_ID, userID: user},
+                $.post("add_recipe.php", {recipeID:add_ID, userID:userID},
                     function() {
                 });
+                return false;
             }
-            return false;
         });
     });
 </script>
