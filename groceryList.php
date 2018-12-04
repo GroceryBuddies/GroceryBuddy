@@ -42,18 +42,16 @@
         <div class="modal-body">
             <!-- Add HTML/JS/PHP here. -->
             
-            <form>
+            <div class="form-group">
+                <label for="message-text" class="col-form-label">Name</label>
+                <input class="form-control" id="name" name="name"></textarea>
                 <div class="form-group">
-                    <label for="message-text" class="col-form-label">Name</label>
-                    <input class="form-control" id="name"></textarea>
-                    <div class="form-group">
-                    <label for="message-text" class="col-form-label">Type</label>
-                    <input class="form-control" id="type"></textarea>
-                    <div class="form-group">
-                    <label for="message-text" class="col-form-label">Description</label>
-                    <input class="form-control" id="description"></textarea>
-                </div>
-            </form>
+                <label for="message-text" class="col-form-label">Type</label>
+                <input class="form-control" id="type" name="type"></textarea>
+                <div class="form-group">
+                <label for="message-text" class="col-form-label">Description</label>
+                <input class="form-control" id="description" name="description"></textarea>
+            </div>
 
             <!-- END -->
         </div>
