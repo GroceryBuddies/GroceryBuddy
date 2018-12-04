@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="https://mycourses.msstate.edu/courses/1/CSE-3324-01-201830/groups/_27771_1//_2767570_1/ic_launcher.png">
+    <link rel="icon" href="ic_launcher.png">
     <title>GroceryBuddy</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
