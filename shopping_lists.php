@@ -124,7 +124,11 @@
                 console.log(info);
                 $.post("delete_list_item.php",{itemID:del_id, userID:userID},function() {
                 });
-                loadShopping();
+                alert('Deleting...');
+                setTimeout(func, 500);
+                function func() {
+                    loadShopping();
+                }
                 return false;
             }
         });
