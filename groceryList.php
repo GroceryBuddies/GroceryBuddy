@@ -129,8 +129,8 @@
             var userID = $(this).attr("user");
             var info = 'groceryID=' + add_ID + 'userID=' + userID;
             var which = $(this).attr("name");
-            var quantity = window.prompt("How much do you need?");
             if(which == "addGrocery") {
+                var quantity = window.prompt("How much do you need?");
                 console.log(info);
                 $.post("add_grocery.php", {groceryID:add_ID, userID:userID, quantity:quantity},function(){
                 });
