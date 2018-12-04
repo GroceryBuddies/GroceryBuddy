@@ -124,8 +124,7 @@
                 console.log(info);
                 $.post("delete_list_item.php",{itemID:del_id, userID:userID},function() {
                 });
-                alert('Deleting...');
-                setTimeout(func, 500);
+                setTimeout(func, 600);
                 function func() {
                     loadShopping();
                 }
