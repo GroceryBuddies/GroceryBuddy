@@ -124,6 +124,7 @@
                 console.log(info);
                 $.post("delete_list_item.php",{itemID:del_id, userID:userID},function() {
                 });
+                loadShopping();
                 return false;
             }
         });

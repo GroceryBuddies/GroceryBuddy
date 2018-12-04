@@ -129,6 +129,30 @@
         
         <!-- Menu Toggle Script -->
         <script>
+        function loadShopping() {
+            $('#content').empty();
+            $('#content').load('shopping_lists.php');
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        }
+        function loadRecipes() {
+            $('#content').empty();
+            $('#content').load('recipes.php');
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        }
+        function loadGrocery() {
+            $('#content').empty();
+            $('#content').load('groceryList.php');
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        }
+        function loadOptions() {
+            $('#content').empty();
+            $('#content').load('options.php');
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        }
         $(document).ready(function(){
             $("#menu-toggle").click(function(e) {
                 e.preventDefault();
@@ -137,28 +161,16 @@
             $('#content').empty();
             $('#content').load('shopping_lists.php');
             $('#shopping').click(function(e){
-                $('#content').empty();
-                $('#content').load('shopping_lists.php');
-                e.preventDefault();
-                $("#wrapper").toggleClass("toggled");
+                loadShopping();
             });
             $('#recipes').click(function(e){
-                $('#content').empty();
-                $('#content').load('recipes.php');
-                e.preventDefault();
-                $("#wrapper").toggleClass("toggled");
+                loadRecipes();
             });
             $('#grocery').click(function(e){
-                $('#content').empty();
-                $('#content').load('groceryList.php');
-                e.preventDefault();
-                $("#wrapper").toggleClass("toggled");
+                loadGrocery();
             });
             $('#options').click(function(e){
-                $('#content').empty();
-                $('#content').load('options.php');
-                e.preventDefault();
-                $("#wrapper").toggleClass("toggled");
+                loadOptions();
             });
             $('#logout').click(function(e){
                 $.get('logout_page.php').success(window.location.replace("logout_page.php"));
