@@ -129,25 +129,25 @@
         
         <!-- Menu Toggle Script -->
         <script>
-        function loadShopping() {
+        function loadShopping(e) {
             $('#content').empty();
             $('#content').load('shopping_lists.php');
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         }
-        function loadRecipes() {
+        function loadRecipes(e) {
             $('#content').empty();
             $('#content').load('recipes.php');
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         }
-        function loadGrocery() {
+        function loadGrocery(e) {
             $('#content').empty();
             $('#content').load('groceryList.php');
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         }
-        function loadOptions() {
+        function loadOptions(e) {
             $('#content').empty();
             $('#content').load('options.php');
             e.preventDefault();
@@ -161,16 +161,16 @@
             $('#content').empty();
             $('#content').load('shopping_lists.php');
             $('#shopping').click(function(e){
-                loadShopping();
+                loadShopping(e);
             });
             $('#recipes').click(function(e){
-                loadRecipes();
+                loadRecipes(e);
             });
             $('#grocery').click(function(e){
-                loadGrocery();
+                loadGrocery(e);
             });
             $('#options').click(function(e){
-                loadOptions();
+                loadOptions(e);
             });
             $('#logout').click(function(e){
                 $.get('logout_page.php').success(window.location.replace("logout_page.php"));
