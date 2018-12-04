@@ -42,22 +42,22 @@
         <div class="modal-body">
             <!-- Add HTML/JS/PHP here. -->
             
-            <div class="form-group">
-                <label for="message-text" class="col-form-label">Name</label>
-                <input class="form-control" id="name" name="name"></textarea>
                 <div class="form-group">
-                <label for="message-text" class="col-form-label">Type</label>
-                <input class="form-control" id="type" name="type"></textarea>
-                <div class="form-group">
-                <label for="message-text" class="col-form-label">Description</label>
-                <input class="form-control" id="description" name="description"></textarea>
-            </div>
+                    <label for="message-text" class="col-form-label">Name</label>
+                    <input class="form-control" id="name" name="name"></textarea>
+                    <div class="form-group">
+                    <label for="message-text" class="col-form-label">Type</label>
+                    <input class="form-control" id="type" name="type"></textarea>
+                    <div class="form-group">
+                    <label for="message-text" class="col-form-label">Description</label>
+                    <input class="form-control" id="description" name="description"></textarea>
+                </div>
 
             <!-- END -->
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="submit" class="btn btn-primary">Add</button>
+            <button type="submit" name="savebutton" class="btn btn-primary">Add</button>
         </div>
         </div>
         </div>
@@ -89,14 +89,6 @@
         $connection = new mysqli($hn, $un, $pw, $db);
         if ($connection->connect_error) die($connection->connect_error);
         $userID = $_SESSION['userID'];
-        if(isset($_POST['submit']))
-        {
-            $itemName = $_POST['name'];
-            $itemType = $_POST['type'];
-            $itemDescription = $_POST['description'];
-            $addQuery = "INSERT INTO gb_ShoppingList (userID, itemName, type, shortDescription) VALUES ('$userID', '$itemName', '$itemType', '$itemDescription')";
-            $connection->query($addQuery);
-        }
         $query = "SELECT * FROM gb_Groceries";
         $result = $connection->query($query);
         while($row = $result->fetch_array()){
@@ -133,6 +125,12 @@
                 $.post("add_grocery.php", {groceryID:add_ID, userID:userID, quantity:quantity},function(){
                 });
                 return false;
+            }else(which == "submit"){
+                var name = $('input[name=name]').val();
+                var type = $('input[name=type]').val();
+                var description = $('input[name=description]').val();
+                $.post("create_grocery.php", {groceryName:name, groceryType:type, groceryDescription:description, userID:userID},function(){
+                });
             }
         });
     });
