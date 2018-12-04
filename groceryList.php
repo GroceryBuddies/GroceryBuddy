@@ -57,7 +57,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="savebutton" class="btn btn-primary">Add</button>
+            <button type="submit" name="saveButton" class="btn btn-primary">Add</button>
         </div>
         </div>
         </div>
@@ -125,12 +125,13 @@
                 $.post("add_grocery.php", {groceryID:add_ID, userID:userID, quantity:quantity},function(){
                 });
                 return false;
-            }else(which == "submit"){
+            }else if(which == "saveButton"){
                 var name = $('input[name=name]').val();
                 var type = $('input[name=type]').val();
                 var description = $('input[name=description]').val();
                 $.post("create_grocery.php", {groceryName:name, groceryType:type, groceryDescription:description, userID:userID},function(){
                 });
+                return false;
             }
         });
     });
