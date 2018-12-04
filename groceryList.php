@@ -59,7 +59,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="submit" name="submit" class="btn btn-primary">Add</button>
         </div>
         </div>
         </div>
@@ -81,6 +81,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Type</th>
                 <th scope="col">Description</th>
+                <th scopt="col">Add</th>
             </tr>
         </thead>
         <tbody>
@@ -90,9 +91,18 @@
         $connection = new mysqli($hn, $un, $pw, $db);
         if ($connection->connect_error) die($connection->connect_error);
         $userID = $_SESSION['userID'];
+        if(isset($_POST['submit']))
+        {
+            $itemName = $_POST['name'];
+            $itemType = $_POST['type'];
+            $itemDescription = $_POST['description'];
+            $addQuery = "INSERT INTO gb_ShoppingList (userID, itemName, type, shortDescription) VALUES ('$userID', '$itemName', '$itemType', '$itemDescription')";
+            $connection->query($addQuery);
+        }
         $query = "SELECT * FROM gb_Groceries";
         $result = $connection->query($query);
         while($row = $result->fetch_array()){
+            $groceryID = $row[itemID];
             $groceryName = $row[itemName];
             $groceryType = $row[type];
             $groceryDescription = $row[shortDescription];
@@ -100,9 +110,31 @@
             echo "<td>".$groceryName."</td>";
             echo "<td>".$groceryType."</td>";
             echo "<td>".$groceryDescription."</td>";
+            echo "<td>    
+            <button type='submit' class='btn btn-primary' name='addGrocery' user=$userID id=$groceryID>
+            <b>Add</b>
+            </button>
+            </td>";
             echo "</tr>";
         }
     ?>
         </tbody>
     </table>
 </body>
+
+<script type="text/javascript">
+    $(function() {
+        $(".btn").click(function() {
+            var add_ID = $(this).attr("id");
+            var userID = $(this).attr("user");
+            var info = 'groceryID=' + add_ID + 'userID=' + userID;
+            var which = $(this).attr("name");
+            if(which == "addGrocery") {
+                console.log(info);
+                $.post("add_grocery.php", {groceryID:add_ID, userID:userID},function(){
+                });
+                return false;
+            }
+        });
+    });
+</script>
