@@ -153,6 +153,12 @@
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         }
+        function loadAbout(e) {
+            $('#content').empty();
+            $('#content').load('about.html');
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        }
         $(document).ready(function(){
             $("#menu-toggle").click(function(e) {
                 e.preventDefault();
@@ -171,6 +177,9 @@
             });
             $('#options').click(function(e){
                 loadOptions(e);
+            });
+            $('#about').click(function(e){
+                loadAbout(e);
             });
             $('#logout').click(function(e){
                 $.get('logout_page.php').success(window.location.replace("logout_page.php"));

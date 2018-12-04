@@ -80,6 +80,7 @@
                 <th scope="col">Recipe</th>
                 <th scope="col">Type</th>
                 <th scope="col">Description</th>
+                <th scope="col">Add</th>
             </tr>
         </thead>
         <tbody>
